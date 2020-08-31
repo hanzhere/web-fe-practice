@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="smooth-scroll-wrapper">
+      <div class="content">
+        <div class="container">
+          <h1 class="text">United Athle 2020</h1>
+          <div class="img">
+            <img src="img-one.jpg" alt="" />
+          </div>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, quos
+            incidunt voluptatem ad et, ducimus expedita consequuntur quasi ipsum
+            consequatur veniam exercitationem quo laborum, recusandae sed?
+            Magnam quisquam sit nihil.
+          </p>
+        </div>
+        <div class="container">
+          <h1 class="text">United Athle 2020</h1>
+          <div class="img">
+            <img src="img-two.jpg" alt="" />
+          </div>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, quos
+            incidunt voluptatem ad et, ducimus expedita consequuntur quasi ipsum
+            consequatur veniam exercitationem quo laborum, recusandae sed?
+            Magnam quisquam sit nihil.
+          </p>
+        </div>
+        <div class="container">
+          <h1 class="text">United Athle 2020</h1>
+          <div class="img">
+            <img src="img-three.jpg" alt="" />
+          </div>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, quos
+            incidunt voluptatem ad et, ducimus expedita consequuntur quasi ipsum
+            consequatur veniam exercitationem quo laborum, recusandae sed?
+            Magnam quisquam sit nihil.
+          </p>
+        </div>
+        <div class="container">
+          <h1 class="text">United Athle 2020</h1>
+          <div class="img">
+            <img src="img-four.jpg" alt="" />
+          </div>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint, quos
+            incidunt voluptatem ad et, ducimus expedita consequuntur quasi ipsum
+            consequatur veniam exercitationem quo laborum, recusandae sed?
+            Magnam quisquam sit nihil.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const body = document.body,
+        scrollWrap = document.getElementsByClassName(
+          'smooth-scroll-wrapper'
+        )[0],
+        height = scrollWrap.getBoundingClientRect().height - 1,
+        speed = 0.04;
+
+      var offset = 0;
+
+      body.style.height = Math.floor(height) + 'px';
+
+      function smoothScroll() {
+        offset += (window.pageYOffset - offset) * speed;
+
+        var scroll = 'translateY(-' + offset + 'px) translateZ(0)';
+        scrollWrap.style.transform = scroll;
+
+        callScroll = requestAnimationFrame(smoothScroll);
+      }
+
+      smoothScroll();
+
+      $(function () {
+        var elements = $('.text, .img').toArray();
+        console.log(elements);
+        $(window).scroll(function () {
+          elements.forEach(function (item) {
+            if ($(this).scrollTop() >= $(item).offset().top - 400) {
+              $(item).addClass('reveal');
+            }
+          });
+        });
+        // elements.forEach(function (item) {
+        //   if ($(this).scrollTop() >= $(item).offset().top - 400) {
+        //     $(item).addClass('reveal');
+        //   }
+        // });
+      });
+    </script>
+  </body>
+</html>
