@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parallax</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section>
+      <img src="bg.jpg" alt="" srcset="" id="bg" />
+      <img src="moon.png" alt="" srcset="" id="moon" />
+      <img src="mountain.png" alt="" srcset="" id="mountain" />
+      <img src="road.png" alt="" srcset="" id="road" />
+      <h2 id="text">Moonlight</h2>
+    </section>
+    <script type="text/javascript">
+      let bg = document.getElementById('bg');
+      let moon = document.getElementById('moon');
+      let road = document.getElementById('road');
+      let mountain = document.getElementById('mountain');
+      let text = document.getElementById('text');
+
+      window.addEventListener('scroll', () => {
+        var value = window.scrollY;
+
+        bg.style.top = value * 0.5 + 'px';
+        moon.style.left = -value * 0.5 + 'px';
+        road.style.top = value * 0.15 + 'px';
+        mountain.style.top = -value * 0.15 + 'px';
+        text.style.top = value * 1 + 'px';
+      });
+    </script>
+  </body>
+</html>
